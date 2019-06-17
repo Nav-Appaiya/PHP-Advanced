@@ -36,14 +36,14 @@ interface LogInterface{
  *
  * Class Table
  */
-class Table implements TableInterface, LogInterface {
+class Table implements TableInterface, LogInterface, Countable {
     /**
      * @param array $data
      * @return string
      */
     public function save(array $data)
     {
-        return 'foo';
+        return 'foo ';
     }
 
     /**
@@ -55,7 +55,11 @@ class Table implements TableInterface, LogInterface {
         return $message . "\n";
     }
 
+    public function count()
+    {
+        return 10;
+    }
 }
 
 echo (new Table())->save([]);
-echo (new Table())->log(' interfaces are awsome!');
+echo (new Table())->count();
